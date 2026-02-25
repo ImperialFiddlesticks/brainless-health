@@ -13,7 +13,7 @@ function RouteComponent() {
   return (
     <div className="w-full flex justify-center">
       <div className="w-xl main-container flex flex-col items-center  h-screen rounded-3xl">
-        <ZombieHeader name="Bob" />
+        <ZombieHeader headline="Bob" />
         <div className="flex flex-col items-center mt-30">
           <img alt="Happy Zombie" src="/happyZombie.png" />
           <Progress

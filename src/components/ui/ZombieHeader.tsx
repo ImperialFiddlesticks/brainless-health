@@ -2,10 +2,10 @@ import { ChevronLeft } from "lucide-react";
 import { useRouter } from "@tanstack/react-router";
 
 interface ZombieHeaderProps {
-  name: string;
+  headline: string;
 }
 
-export default function ZombieHeader({ name }: ZombieHeaderProps) {
+export default function ZombieHeader({ headline }: ZombieHeaderProps) {
   const router = useRouter();
 
   return (
@@ -17,7 +17,7 @@ export default function ZombieHeader({ name }: ZombieHeaderProps) {
         <ChevronLeft size={28} />
       </button>
 
-      <h1 className="text-3xl font-bold text-white">{name}</h1>
+      <h1 className="text-3xl font-bold text-white">{headline}</h1>
     </div>
   );
 }

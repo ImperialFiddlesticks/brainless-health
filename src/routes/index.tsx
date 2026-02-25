@@ -1,3 +1,5 @@
+import ZombieHeader from "@/components/ui/ZombieHeader";
+import ZombiePicker from "@/components/ui/ZombiePicker";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -7,7 +9,10 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
   return (
     <div className="w-full flex justify-center">
-      <div className="w-xl main-container h-screen rounded-3xl">First page</div>
+      <div className="w-xl main-container flex flex-col items-center  h-screen rounded-3xl">
+        <ZombieHeader headline="Brainless Fitness" />
+        <ZombiePicker />
+      </div>
     </div>
   );
 }
