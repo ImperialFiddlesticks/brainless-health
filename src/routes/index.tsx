@@ -5,5 +5,9 @@ export const Route = createFileRoute("/")({
 });
 
 function RouteComponent() {
-  return <div>First page</div>;
+  return (
+    <div className="w-full flex justify-center">
+      <div className="w-xl main-container h-screen rounded-3xl">First page</div>
+    </div>
+  );
 }
