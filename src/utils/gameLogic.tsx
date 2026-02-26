@@ -12,7 +12,7 @@ export function feedZombie(zombie: Zombie): Zombie {
   };
 }
 
-// Lägga till mat till zombiens förfogande
+// Lägga till mat till zombiens förfogande (kan tas bort eftersom det finns bättre funktion nedan som beräknar)
 
 export function addFood(zombie: Zombie, amount: number): Zombie {
   return {
@@ -38,5 +38,36 @@ export function zombieDecay(zombie: Zombie): Zombie {
   return {
     ...zombie,
     health: Math.max(zombie.health - 1, 0),
+  };
+}
+
+// kontrollerar om vår zombie "dött"
+export function isZombieDead(zombie: Zombie): boolean {
+  return zombie.health <= 0;
+}
+
+// räknar ut hur mycket food man tjänat ihop (exempel)
+
+export function calculateFood(
+  minutes: number,
+  km: number,
+  gympass: number,
+): number {
+  return Math.floor((minutes * km * gympass) / 10);
+}
+
+// lägger till food som zombien kan äta av
+
+export function applyWorkoutAddFood(
+  zombie: Zombie,
+  minutes: number,
+  km: number,
+  gympass: number,
+): Zombie {
+  const earnedFood = calculateFood(minutes, km, gympass);
+
+  return {
+    ...zombie,
+    food: zombie.food + earnedFood,
   };
 }
