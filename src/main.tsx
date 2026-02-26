@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen.ts";
+import { ZombieProvider } from "./context/Zombiecontext.tsx";
 
 const router = createRouter({
   routeTree,
@@ -10,6 +11,8 @@ const router = createRouter({
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ZombieProvider>
+      <RouterProvider router={router} />
+    </ZombieProvider>
   </StrictMode>,
 );
