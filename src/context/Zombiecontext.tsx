@@ -4,6 +4,7 @@ import { createContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { loadZombieState, saveZombieState } from "../utils/localstorage";
 import type { Zombie, ZombieStatus } from "../types/zombie";
+import { isZombieDead } from "@/utils/gameLogic";
 
 // en typ för det som context innehåller
 type ZombieContextType = {
@@ -54,6 +55,16 @@ export function ZombieProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     saveZombieState(zombie);
+  }, [zombie]);
+
+  // kolla om zombien är död när zombie uppdateras
+
+  useEffect(() => {
+    const dead = isZombieDead(zombie);
+    if (dead) {
+      console.log("Din zombie är död!");
+      alert("Zombien är död!");
+    }
   }, [zombie]);
 
   // JSX som returneras
