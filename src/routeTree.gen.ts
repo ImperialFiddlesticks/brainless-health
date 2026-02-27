@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ZombieScreenIndexRouteImport } from './routes/zombieScreen/index'
+import { Route as PickYourZombieScreenIndexRouteImport } from './routes/pickYourZombieScreen/index'
 import { Route as ExerciseScreenIndexRouteImport } from './routes/exerciseScreen/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,12 @@ const ZombieScreenIndexRoute = ZombieScreenIndexRouteImport.update({
   path: '/zombieScreen/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PickYourZombieScreenIndexRoute =
+  PickYourZombieScreenIndexRouteImport.update({
+    id: '/pickYourZombieScreen/',
+    path: '/pickYourZombieScreen/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ExerciseScreenIndexRoute = ExerciseScreenIndexRouteImport.update({
   id: '/exerciseScreen/',
   path: '/exerciseScreen/',
@@ -32,30 +39,43 @@ const ExerciseScreenIndexRoute = ExerciseScreenIndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/exerciseScreen/': typeof ExerciseScreenIndexRoute
+  '/pickYourZombieScreen/': typeof PickYourZombieScreenIndexRoute
   '/zombieScreen/': typeof ZombieScreenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/exerciseScreen': typeof ExerciseScreenIndexRoute
+  '/pickYourZombieScreen': typeof PickYourZombieScreenIndexRoute
   '/zombieScreen': typeof ZombieScreenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/exerciseScreen/': typeof ExerciseScreenIndexRoute
+  '/pickYourZombieScreen/': typeof PickYourZombieScreenIndexRoute
   '/zombieScreen/': typeof ZombieScreenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/exerciseScreen/' | '/zombieScreen/'
+  fullPaths:
+    | '/'
+    | '/exerciseScreen/'
+    | '/pickYourZombieScreen/'
+    | '/zombieScreen/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/exerciseScreen' | '/zombieScreen'
-  id: '__root__' | '/' | '/exerciseScreen/' | '/zombieScreen/'
+  to: '/' | '/exerciseScreen' | '/pickYourZombieScreen' | '/zombieScreen'
+  id:
+    | '__root__'
+    | '/'
+    | '/exerciseScreen/'
+    | '/pickYourZombieScreen/'
+    | '/zombieScreen/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ExerciseScreenIndexRoute: typeof ExerciseScreenIndexRoute
+  PickYourZombieScreenIndexRoute: typeof PickYourZombieScreenIndexRoute
   ZombieScreenIndexRoute: typeof ZombieScreenIndexRoute
 }
 
@@ -75,6 +95,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZombieScreenIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pickYourZombieScreen/': {
+      id: '/pickYourZombieScreen/'
+      path: '/pickYourZombieScreen'
+      fullPath: '/pickYourZombieScreen/'
+      preLoaderRoute: typeof PickYourZombieScreenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/exerciseScreen/': {
       id: '/exerciseScreen/'
       path: '/exerciseScreen'
@@ -88,6 +115,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ExerciseScreenIndexRoute: ExerciseScreenIndexRoute,
+  PickYourZombieScreenIndexRoute: PickYourZombieScreenIndexRoute,
   ZombieScreenIndexRoute: ZombieScreenIndexRoute,
 }
 export const routeTree = rootRouteImport

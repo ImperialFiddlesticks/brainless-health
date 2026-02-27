@@ -12,6 +12,7 @@ type ZombieContextType = {
   setZombie: React.Dispatch<React.SetStateAction<Zombie>>;
   status: ZombieStatus;
   setHealth: (health: number) => void;
+  setBrains: (brains: number) => void;
 };
 
 // Skapa contexten
@@ -30,16 +31,20 @@ function deriveStatus(zombie: Zombie): ZombieStatus {
 
 export function ZombieProvider({ children }: { children: ReactNode }) {
   const defaultZombie: Zombie = {
-    health: 100,
+    health: 50,
     food: 0,
     lastFed: new Date().toISOString(),
     status: "Happy",
+    brains: 2,
   };
   const setHealth = (health: number) => {
     setZombie((prev) => ({
       ...prev,
       health: Math.max(0, Math.min(100, health)),
     }));
+  };
+  const setBrains = (brains: number) => {
+    setZombie((prev) => ({ ...prev, brains }));
   };
 
   // useState för vår zombie, default om det inte finns något sparat i localStorage
@@ -70,7 +75,9 @@ export function ZombieProvider({ children }: { children: ReactNode }) {
   // JSX som returneras
 
   return (
-    <ZombieContext.Provider value={{ zombie, setZombie, status, setHealth }}>
+    <ZombieContext.Provider
+      value={{ zombie, setZombie, status, setHealth, setBrains }}
+    >
       {children}
     </ZombieContext.Provider>
   );

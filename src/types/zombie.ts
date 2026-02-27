@@ -6,6 +6,7 @@ export type ZombieStatus = "Happy" | "Hungry" | "Weak" | "Dead";
 export type Zombie = {
   health: number;
   food: number;
+  brains: number;
   lastFed: string;
   status: ZombieStatus;
 };
