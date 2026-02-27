@@ -26,46 +26,41 @@ function RouteComponent() {
 
   return (
     <PhoneFrame>
-      <div className="w-full h-full flex justify-center">
-        <div className="w-l main-container flex flex-col items-center bg-[#ffffff] h-full rounded-3xl overflow-x-visible p-4">
-          <h2 className="exercise-heading">Register Activities</h2>
+      <div className="flex-1 flex flex-col items-center p-4 bg-white rounded-3xl">
+        <h2 className="exercise-heading">Register Activities</h2>
 
-          <NumberInput
-            label="Number of steps this week:"
-            value={steps}
-            onChange={setSteps}
-            className="NumberInput"
-          />
+        <NumberInput
+          label="Number of steps this week:"
+          value={steps}
+          onChange={setSteps}
+          className="NumberInput"
+        />
+        <NumberInput
+          label="Hours of workout this week:"
+          value={workout}
+          onChange={setWorkout}
+          className="NumberInput"
+        />
+        <NumberInput
+          label="Hours of meditation this week:"
+          value={meditate}
+          onChange={setMeditate}
+          className="NumberInput"
+        />
+        <NumberInput
+          label="Hours away from brainrot screentime this week:"
+          value={awayscreen}
+          onChange={setAwayscreen}
+          className="NumberInput"
+        />
 
-          <NumberInput
-            label="Hours of workout this week:"
-            value={workout}
-            onChange={setWorkout}
-            className="NumberInput"
-          />
-
-          <NumberInput
-            label="Hours of meditation this week:"
-            value={meditate}
-            onChange={setMeditate}
-            className="NumberInput"
-          />
-
-          <NumberInput
-            label="Hours away from brainrot screentime this week:"
-            value={awayscreen}
-            onChange={setAwayscreen}
-            className="NumberInput"
-          />
-
-          <button
-            type="button"
-            onClick={handleSubmit}
-            className="mt-4 px-4 py-2 bg-green-500 rounded text-white"
-          >
-            Save
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={handleSubmit}
+          className="mt-4 px-4 py-2 bg-green-500 rounded text-white"
+        >
+          Save
+        </button>
       </div>
     </PhoneFrame>
   );

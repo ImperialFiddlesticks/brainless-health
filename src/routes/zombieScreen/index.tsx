@@ -47,32 +47,30 @@ function RouteComponent() {
   return (
     <PhoneFrame>
       <DndContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
-        <div className="w-full h-full flex justify-center overflow-visible">
-          <div className="w-full main-container flex flex-col items-center h-full rounded-3xl overflow-x-visible">
-            <ZombieHeader headline="Bob" />
-            <div className="flex flex-col items-center mt-5 overflow-visible">
-              <Progress
-                value={(experience / maxXP) * 100}
-                className="w-70 h-2 bg-white/20 [&>div]:bg-green-500 mt-10"
-              />
-              <p className="text-white mb-10">Level 1</p>
-              <ZombieDropZone status={status} />
-              <Progress
-                value={zombie.health}
-                className={`w-87 h-2 bg-white/20 mt-4 ${getHealthBarColor(status)}`}
-              />
-              <p className="text-white">Hunger</p>
+        <div className="flex-1 flex flex-col items-center justify-start overflow-visible">
+          <ZombieHeader headline="Bob" />
+          <div className="flex flex-col items-center mt-5 overflow-visible">
+            <Progress
+              value={(experience / maxXP) * 100}
+              className="w-70 h-2 bg-white/20 [&>div]:bg-green-500 mt-10"
+            />
+            <p className="text-white mb-10">Level 1</p>
+            <ZombieDropZone status={status} />
+            <Progress
+              value={zombie.health}
+              className={`w-87 h-2 bg-white/20 mt-4 ${getHealthBarColor(status)}`}
+            />
+            <p className="text-white">Hunger</p>
 
-              <div
-                className="bg-white/50 h-28 w-90
+            <div
+              className="bg-white/50 h-28 w-90
 
               
               flex justify-center flex-nowrap items-center gap-2 mt-5 rounded-2xl overflow-visible"
-              >
-                {Array.from({ length: zombie.brains }).map((_, i) => (
-                  <Brain key={`brain-${i}`} id={`brain-${i}`} />
-                ))}
-              </div>
+            >
+              {Array.from({ length: zombie.brains }).map((_, i) => (
+                <Brain key={`brain-${i}`} id={`brain-${i}`} />
+              ))}
             </div>
           </div>
         </div>
