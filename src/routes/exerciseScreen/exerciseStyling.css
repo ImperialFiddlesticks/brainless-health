@@ -1,0 +1,76 @@
+.main-container {
+  max-width: 480px; /* ungefär mobil/tablet-bredd */
+  margin: 2rem auto; /* centrerar på sidan */
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+/* NumberInput wrapper */
+.NumberInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+/* Själva inputfältet */
+.NumberInput input {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cccccc;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.NumberInput input:focus {
+  border-color: #4ade80; /* grön highlight när aktiv */
+  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.3);
+}
+
+
+/* Label för input */
+.NumberInput {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f0ecec;
+}
+
+/* Rubrik */
+.exercise-heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333333;
+  margin-bottom: 2rem;
+}
+
+
+
+/* Knappen */
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: #4ade80; /* grön */
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background-color: #22c55e; /* mörkare grön */
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
