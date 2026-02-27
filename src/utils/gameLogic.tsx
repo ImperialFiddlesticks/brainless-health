@@ -47,11 +47,12 @@ export function isZombieDead(zombie: Zombie): boolean {
 }
 
 // räknar ut hur mycket food man tjänat ihop (exempel)
-
+/*
 export function calculateFood(
-  minutes: number,
-  km: number,
-  gympass: number,
+  minutes?: number,
+  km?: number,
+  gympass?: number,
+  steps?: number
 ): number {
   return Math.floor((minutes * km * gympass) / 10);
 }
@@ -63,8 +64,48 @@ export function applyWorkoutAddFood(
   minutes: number,
   km: number,
   gympass: number,
+  steps: number
 ): Zombie {
-  const earnedFood = calculateFood(minutes, km, gympass);
+  const earnedFood = calculateFood(minutes, km, gympass, steps);
+
+  return {
+    ...zombie,
+    food: zombie.food + earnedFood,
+  };
+}
+*/
+
+export function calculateFood(
+  steps?: number,
+  minutes?: number,
+  km?: number,
+  gympass?: number,
+): number {
+  let food = 0;
+
+  if (steps) {
+    food += Math.floor(steps / 1000); // 1000 steg = 1 food
+  }
+
+  // extra valfritt: kombinera minuter, km, gympass
+  if (minutes && km && gympass) {
+    food += Math.floor((minutes * km * gympass) / 10);
+  }
+
+  return food;
+}
+
+/**
+ * Applicera earned food på zombien
+ */
+export function applyWorkoutAddFood(
+  zombie: Zombie,
+  steps?: number,
+  minutes?: number,
+  km?: number,
+  gympass?: number,
+): Zombie {
+  const earnedFood = calculateFood(steps, minutes, km, gympass);
 
   return {
     ...zombie,
