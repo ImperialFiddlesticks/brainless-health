@@ -18,10 +18,11 @@ body {
   background: linear-gradient(
     180deg,
     #0d153f 0%,
-    #191f5c 40%,
-    #2d1a5c 80%,
-    #321a66 100%
+    #212551 40%,
+    #281b47 80%,
+    #322254 100%
   );
+
   overflow: visible;
 }
 

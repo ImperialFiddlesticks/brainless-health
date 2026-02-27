@@ -12,7 +12,7 @@ function RouteComponent() {
     <PhoneFrame>
       <div className="w-full h-full flex justify-center">
         <div className="w-l main-container flex flex-col items-center h-full rounded-3xl overflow-x-visible">
-          <ZombieHeader headline="Brainless Fitness" />
+          <ZombieHeader headline="" />
           <ZombiePicker />
         </div>
       </div>

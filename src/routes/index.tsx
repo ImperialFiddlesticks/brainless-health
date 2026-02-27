@@ -17,8 +17,8 @@ function RouteComponent() {
         <div className="w-full main-container flex flex-col items-center h-full rounded-3xl overflow-x-visible">
           <img
             alt="brainless fitness logo"
-            src="/logo.png"
-            className="h-125 mt-6"
+            src="/logo3.png"
+            className="h-90 mt-10"
           />
           <Button
             onClick={() => navigate({ to: "/pickYourZombieScreen/" })}

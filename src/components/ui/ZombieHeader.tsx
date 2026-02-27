@@ -9,7 +9,7 @@ export default function ZombieHeader({ headline }: ZombieHeaderProps) {
   const router = useRouter();
 
   return (
-    <div className="relative flex items-center justify-center w-full px-4 py-3">
+    <div className="relative flex items-center justify-center w-full px-4 py-3 h-15">
       <button
         onClick={() => router.history.back()}
         className="absolute left-4 text-white hover:text-green-400 transition-colors"

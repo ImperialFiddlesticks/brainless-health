@@ -93,7 +93,7 @@ export default function ZombiePicker() {
   return (
     <div className="flex flex-col items-center gap-2 w-full h-full justify-center px-4">
       <h1 className="text-white text-2xl font-bold tracking-widest uppercase mt-20">
-        Choose Your Zombie
+        Pick Your Zombie
       </h1>
 
       <div
@@ -126,7 +126,7 @@ export default function ZombiePicker() {
                   alt={zombie.name}
                   className={cn(
                     "object-contain transition-all duration-300",
-                    isCenter ? "w-80 h-80" : "w-40 h-40",
+                    isCenter ? "w-96 h-96" : "w-40 h-40",
                   )}
                   draggable={false}
                 />
