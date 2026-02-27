@@ -19,7 +19,7 @@ function getHealthBarColor(status: ZombieStatus): string {
   if (status === "Dead") return "[&>div]:bg-orange-500 bg-red-500";
   if (status === "Weak") return "[&>div]:bg-orange-500 bg-white/20";
   if (status === "Hungry") return "[&>div]:bg-yellow-500 bg-white/20";
-  return "[&>div]:bg-[#6F9838] bg-white/20";
+  return "[&>div]:bg-[#94e019]  bg-white/20";
 }
 
 export const Route = createFileRoute("/zombieScreen/")({
@@ -40,6 +40,7 @@ function RouteComponent() {
     if (event.over?.id === "zombie") {
       setHealth(zombie.health + 10);
       setBrains(zombie.brains - 1);
+      addExperience(50);
     }
     setDraggingId(null);
   };
@@ -51,8 +52,8 @@ function RouteComponent() {
           <ZombieHeader headline="Bob" />
           <div className="flex flex-col items-center mt-5 overflow-visible">
             <Progress
-              value={(experience / maxXP) * 100}
-              className="w-70 h-2 bg-white/20 [&>div]:bg-green-500 mt-10"
+              value={(zombie.experience / maxXP) * 100}
+              className="w-70 h-2 bg-white/20 [&>div]:bg-[#94e019]  mt-10"
             />
             <p className="text-white mb-10">Level 1</p>
             <ZombieDropZone status={status} />

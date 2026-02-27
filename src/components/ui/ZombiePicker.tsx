@@ -97,7 +97,7 @@ export default function ZombiePicker() {
       </h1>
 
       <div
-        className="w-full flex-1 flex flex-col items-center justify-center select-none touch-pan-y"
+        className="w-full flex-1 flex flex-col items-center  select-none touch-pan-y"
         onWheel={onWheel}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
@@ -132,9 +132,9 @@ export default function ZombiePicker() {
                 />
                 <span
                   className={cn(
-                    "mt-4 font-bold tracking-wide",
+                    "mt-1 font-bold tracking-wide",
                     isCenter
-                      ? "text-green-400 text-xl"
+                      ? "text-[#94e019]  text-xl"
                       : "text-white/20 text-sm",
                   )}
                 >
@@ -153,7 +153,7 @@ export default function ZombiePicker() {
               onClick={() => setActive(i)}
               className={cn(
                 "h-2 rounded-full transition-all duration-300",
-                i === active ? "bg-green-400 w-4" : "bg-white/30 w-2",
+                i === active ? "bg-[#94e019]  w-4" : "bg-white/30 w-2",
               )}
             />
           ))}
