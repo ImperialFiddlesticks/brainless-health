@@ -11,6 +11,7 @@ export default function ZombieHeader({ headline }: ZombieHeaderProps) {
   return (
     <div className="relative flex items-center justify-center w-full px-4 py-3">
       <button
+        title="go back"
         onClick={() => router.history.back()}
         className="absolute left-4 text-white hover:text-green-400 transition-colors"
       >
@@ -18,6 +19,14 @@ export default function ZombieHeader({ headline }: ZombieHeaderProps) {
       </button>
 
       <h1 className="text-3xl font-bold text-white">{headline}</h1>
+      <button
+        onClick={() => router.navigate({ to: "/exerciseScreen/" })}
+        className="absolute right-4 text-white hover:text-green-400 transition-colors"
+        aria-label="Gå till träning"
+        title="Gå till träning"
+      >
+        Exercise
+      </button>
     </div>
   );
 }
