@@ -1,14 +1,14 @@
-.main-container {
-  max-width: 480px; /* ungefär mobil/tablet-bredd */
-  margin: 2rem auto; /* centrerar på sidan */
+/* .main-container {
+  max-width: 480px; 
+  margin: 2rem auto; 
   padding: 2rem;
-  background-color: #ffffff;
+
   border-radius: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
+} */
 
 /* NumberInput wrapper */
 .NumberInput {

@@ -6,6 +6,7 @@ import { NumberInput } from "@/components/ui/numberInput";
 import { ZombieContext } from "@/context/Zombiecontext";
 import { addFood } from "@/utils/gameLogic";
 import type { Zombie } from "@/types/zombie";
+import ZombieHeader from "@/components/ui/ZombieHeader";
 
 export const Route = createFileRoute("/exerciseScreen/")({
   component: RouteComponent,
@@ -26,7 +27,8 @@ function RouteComponent() {
 
   return (
     <PhoneFrame>
-      <div className="flex-1 flex flex-col items-center p-4 bg-white rounded-3xl">
+      <div className="flex-1 flex flex-col items-center p-4  rounded-3xl">
+        <ZombieHeader headline="" />
         <h2 className="exercise-heading">Register Activities</h2>
 
         <NumberInput
