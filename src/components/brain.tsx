@@ -25,6 +25,7 @@ export default function Brain({ id }: BrainProps) {
       {...attributes}
       alt="brain"
       src="/brain.png"
+      draggable={false}
       className="w-25 h-25"
     />
   );

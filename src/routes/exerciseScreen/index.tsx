@@ -1,3 +1,4 @@
+import PhoneFrame from "@/components/PhoneFrame";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/exerciseScreen/")({
@@ -6,10 +7,12 @@ export const Route = createFileRoute("/exerciseScreen/")({
 
 function RouteComponent() {
   return (
-    <div className="w-full flex justify-center">
-      <div className="w-xl main-container bg-[#ffffff] h-screen rounded-3xl">
-        Exercise Screen
+    <PhoneFrame>
+      <div className="w-full h-full flex justify-center">
+        <div className="w-l main-container flex flex-col items-center h-full rounded-3xl overflow-x-visible">
+          Exercise Screen
+        </div>
       </div>
-    </div>
+    </PhoneFrame>
   );
 }

@@ -12,6 +12,8 @@ import {
   type DragStartEvent,
 } from "@dnd-kit/core";
 import type { ZombieStatus } from "@/types/zombie";
+import { createPortal } from "react-dom";
+import PhoneFrame from "@/components/PhoneFrame";
 
 function getHealthBarColor(status: ZombieStatus): string {
   if (status === "Dead") return "[&>div]:bg-orange-500 bg-red-500";
@@ -43,36 +45,44 @@ function RouteComponent() {
   };
 
   return (
-    <DndContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
-      <div className="w-full flex justify-center">
-        <div className="w-xl main-container flex flex-col items-center  h-screen rounded-3xl">
-          <ZombieHeader headline="Bob" />
-          <div className="flex flex-col items-center mt-5">
-            <Progress
-              value={(experience / maxXP) * 100}
-              className="w-70 h-3 bg-white [&>div]:bg-green-500 mt-10"
-            />
-            <p className="text-white mb-10">Level 1</p>
-            <ZombieDropZone status={status} />
-            <Progress
-              value={zombie.health}
-              className={`w-70 h-3 bg-white mt-4 ${getHealthBarColor(status)}`}
-            />
-            <p className="text-white">Hunger</p>
+    <PhoneFrame>
+      <DndContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
+        <div className="w-full h-full flex justify-center overflow-visible">
+          <div className="w-l main-container flex flex-col items-center h-full rounded-3xl overflow-x-visible">
+            <ZombieHeader headline="Bob" />
+            <div className="flex flex-col items-center mt-5 overflow-visible">
+              <Progress
+                value={(experience / maxXP) * 100}
+                className="w-70 h-3 bg-white [&>div]:bg-green-500 mt-10"
+              />
+              <p className="text-white mb-10">Level 1</p>
+              <ZombieDropZone status={status} />
+              <Progress
+                value={zombie.health}
+                className={`w-70 h-3 bg-white mt-4 ${getHealthBarColor(status)}`}
+              />
+              <p className="text-white">Hunger</p>
 
-            <div className="bg-white/50 h-55 w-100 flex justify-center flex-wrap mt-5 rounded-2xl">
-              {Array.from({ length: zombie.brains }).map((_, i) => (
-                <Brain key={`brain-${i}`} id={`brain-${i}`} />
-              ))}
+              <div className="bg-white/50 h-55 w-100 flex justify-center flex-wrap mt-5 rounded-2xl overflow-visible">
+                {Array.from({ length: zombie.brains }).map((_, i) => (
+                  <Brain key={`brain-${i}`} id={`brain-${i}`} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <DragOverlay>
-        {draggingId && (
-          <img alt="brain" src="/brain.png" className="w-25 h-25 opacity-80" />
-        )}
-      </DragOverlay>
-    </DndContext>
+        <DragOverlay>
+          {draggingId &&
+            createPortal(
+              <img
+                alt="brain"
+                src="/brain.png"
+                className="w-25 h-25 opacity-80"
+              />,
+              document.body,
+            )}
+        </DragOverlay>
+      </DndContext>
+    </PhoneFrame>
   );
 }

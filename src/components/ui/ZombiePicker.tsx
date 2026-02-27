@@ -91,20 +91,20 @@ export default function ZombiePicker() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full py-12">
-      <h1 className="text-white text-3xl font-bold tracking-widest uppercase">
+    <div className="flex flex-col items-center gap-8 w-full h-full justify-center px-4">
+      <h1 className="text-white text-2xl font-bold tracking-widest uppercase">
         Choose Your Zombie
       </h1>
 
       <div
-        className="w-full max-w-3xl px-4 select-none touch-pan-y"
+        className="w-full select-none touch-pan-y flex-1 flex flex-col items-center justify-center"
         onWheel={onWheel}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        <div className="grid grid-cols-3 items-center gap-4">
+        <div className="grid grid-cols-3 items-center gap-8 w-full">
           {trio.map((zIndex, slot) => {
             const zombie = zombies[zIndex];
             const isCenter = slot === 1;
@@ -116,7 +116,7 @@ export default function ZombiePicker() {
                 onClick={() => handleSelect(zIndex)}
                 className={cn(
                   "flex flex-col items-center rounded-2xl transition-all duration-300",
-                  isCenter ? "scale-110 p-6" : "scale-90 opacity-50 p-4",
+                  isCenter ? "scale-100 p-6" : "scale-50 opacity-40 p-2",
                   isCenter && !zombie.enabled
                     ? "cursor-not-allowed"
                     : "cursor-pointer",
@@ -128,7 +128,7 @@ export default function ZombiePicker() {
                   alt={zombie.name}
                   className={cn(
                     "object-contain transition-all duration-300",
-                    isCenter ? "w-40 h-40" : "w-24 h-24",
+                    isCenter ? "w-56 h-56" : "w-20 h-20",
                   )}
                   draggable={false}
                 />
@@ -137,7 +137,7 @@ export default function ZombiePicker() {
                     "mt-3 font-bold tracking-wide",
                     isCenter
                       ? "text-green-400 text-lg"
-                      : "text-white/40 text-sm",
+                      : "text-white/20 text-xs",
                   )}
                 >
                   {zombie.name}
@@ -153,7 +153,7 @@ export default function ZombiePicker() {
         </div>
 
         {/* dots */}
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center gap-2 mt-8">
           {zombies.map((_, i) => (
             <button
               key={i}
