@@ -27,9 +27,9 @@ export const Route = createFileRoute("/zombieScreen/")({
 });
 
 function RouteComponent() {
-  const [experience, setExperience] = useState(0);
   const [draggingId, setDraggingId] = useState<string | null>(null);
-  const { status, zombie, setHealth, setBrains } = useContext(ZombieContext)!;
+  const { status, zombie, setHealth, setBrains, experience, addExperience } =
+    useContext(ZombieContext)!;
   const maxXP = 500;
 
   const handleDragStart = (event: DragStartEvent) => {
@@ -63,10 +63,10 @@ function RouteComponent() {
             <p className="text-white">Hunger</p>
 
             <div
-              className="bg-white/50 h-28 w-90
+              className="bg-white/50 h-50 w-90
 
               
-              flex justify-center flex-nowrap items-center gap-2 mt-5 rounded-2xl overflow-visible"
+              flex justify-center flex-wrap items-center gap-2 mt-5 rounded-2xl overflow-visible"
             >
               {Array.from({ length: zombie.brains }).map((_, i) => (
                 <Brain key={`brain-${i}`} id={`brain-${i}`} />
@@ -85,6 +85,12 @@ function RouteComponent() {
               document.body,
             )}
         </DragOverlay>
+        <button
+          onClick={() => setHealth(0)}
+          className="mt-4 text-xs text-red-400 underline opacity-50"
+        >
+          💀 Kill zombie (demo)
+        </button>
       </DndContext>
     </PhoneFrame>
   );

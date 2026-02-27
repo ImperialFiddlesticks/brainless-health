@@ -9,4 +9,5 @@ export type Zombie = {
   brains: number;
   lastFed: string;
   status: ZombieStatus;
+  experience: number;
 };

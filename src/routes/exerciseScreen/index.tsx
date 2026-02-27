@@ -4,8 +4,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useContext } from "react";
 import { NumberInput } from "@/components/ui/numberInput";
 import { ZombieContext } from "@/context/Zombiecontext";
-import { addFood } from "@/utils/gameLogic";
-import type { Zombie } from "@/types/zombie";
 import ZombieHeader from "@/components/ui/ZombieHeader";
 
 export const Route = createFileRoute("/exerciseScreen/")({
@@ -17,11 +15,10 @@ function RouteComponent() {
   const [workout, setWorkout] = useState(0);
   const [meditate, setMeditate] = useState(0);
   const [awayscreen, setAwayscreen] = useState(0);
-  const { setZombie } = useContext(ZombieContext)!;
+  const { addFood } = useContext(ZombieContext)!;
 
   function handleSubmit() {
-    const earnedFood = Math.floor(steps / 1000);
-    setZombie((prev: Zombie) => addFood(prev, earnedFood));
+    addFood(Math.floor(steps / 1000));
     setSteps(0);
   }
 
@@ -64,13 +61,6 @@ function RouteComponent() {
           Save
         </button>
       </div>
-      <PhoneFrame>
-        <div className="w-full h-full flex justify-center">
-          <div className="w-l main-container flex flex-col items-center h-full rounded-3xl overflow-x-visible">
-            Exercise Screen
-          </div>
-        </div>
-      </PhoneFrame>
-    </div>
+    </PhoneFrame>
   );
 }
