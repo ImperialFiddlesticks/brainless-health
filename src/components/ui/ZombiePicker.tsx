@@ -91,62 +91,55 @@ export default function ZombiePicker() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full py-12">
-      <h1 className="text-white text-3xl font-bold tracking-widest uppercase">
+    <div className="flex flex-col items-center gap-2 w-full h-full justify-center px-4">
+      <h1 className="text-white text-2xl font-bold tracking-widest uppercase mt-20">
         Choose Your Zombie
       </h1>
 
       <div
-        className="w-full max-w-3xl px-4 select-none touch-pan-y"
+        className="w-full flex-1 flex flex-col items-center justify-center select-none touch-pan-y"
         onWheel={onWheel}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        <div className="grid grid-cols-3 items-center gap-4">
+        <div className="flex items-center justify-center gap-4 w-full">
           {trio.map((zIndex, slot) => {
             const zombie = zombies[zIndex];
             const isCenter = slot === 1;
-            const isActive = zIndex === active;
 
             return (
               <button
                 key={`${zombie.id}-${slot}`}
                 onClick={() => handleSelect(zIndex)}
                 className={cn(
-                  "flex flex-col items-center rounded-2xl transition-all duration-300",
-                  isCenter ? "scale-110 p-6" : "scale-90 opacity-50 p-4",
+                  "flex flex-col items-center transition-all duration-300",
+                  isCenter ? "scale-100" : "scale-40 opacity-50",
                   isCenter && !zombie.enabled
                     ? "cursor-not-allowed"
                     : "cursor-pointer",
                 )}
-                aria-current={isActive ? "true" : "false"}
               >
                 <img
                   src={zombie.src}
                   alt={zombie.name}
                   className={cn(
                     "object-contain transition-all duration-300",
-                    isCenter ? "w-40 h-40" : "w-24 h-24",
+                    isCenter ? "w-80 h-80" : "w-40 h-40",
                   )}
                   draggable={false}
                 />
                 <span
                   className={cn(
-                    "mt-3 font-bold tracking-wide",
+                    "mt-4 font-bold tracking-wide",
                     isCenter
-                      ? "text-green-400 text-lg"
-                      : "text-white/40 text-sm",
+                      ? "text-green-400 text-xl"
+                      : "text-white/20 text-sm",
                   )}
                 >
                   {zombie.name}
                 </span>
-                {isCenter && (
-                  <span className="mt-2 text-xs animate-pulse text-white/80">
-                    {zombie.enabled ? "🧠 Tap to choose" : "Coming soon"}
-                  </span>
-                )}
               </button>
             );
           })}
@@ -162,7 +155,6 @@ export default function ZombiePicker() {
                 "h-2 rounded-full transition-all duration-300",
                 i === active ? "bg-green-400 w-4" : "bg-white/30 w-2",
               )}
-              aria-label={`Go to ${zombies[i].name}`}
             />
           ))}
         </div>

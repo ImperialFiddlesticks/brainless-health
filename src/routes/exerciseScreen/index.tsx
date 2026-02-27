@@ -1,4 +1,5 @@
 import "./exerciseStyling.css";
+import PhoneFrame from "@/components/PhoneFrame";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useContext } from "react";
 import { NumberInput } from "@/components/ui/numberInput";
@@ -60,7 +61,12 @@ function RouteComponent() {
         <button type="button" onClick={handleSubmit}>
           Registrera
         </button>
+    <PhoneFrame>
+      <div className="w-full h-full flex justify-center">
+        <div className="w-l main-container flex flex-col items-center h-full rounded-3xl overflow-x-visible">
+          Exercise Screen
+        </div>
       </div>
-    </div>
+    </PhoneFrame>
   );
 }

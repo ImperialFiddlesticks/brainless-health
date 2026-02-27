@@ -18,9 +18,13 @@ export default function ZombieDropZone({ status }: ZombieDropZoneProps) {
   return (
     <div
       ref={setNodeRef}
-      className={`transition-all duration-200 rounded-full ${isOver ? "scale-110 drop-shadow-[0_0_20px_rgba(74,222,128,0.8)]" : ""}`}
+      className={`transition-all duration-200  rounded-full ${isOver ? "scale-110 drop-shadow-[0_0_20px_rgba(74,222,128,0.8)]" : ""}`}
     >
-      <img alt={`${status} Zombie`} src={zombieImages[status]} />
+      <img
+        alt={`${status} Zombie`}
+        src={zombieImages[status]}
+        className=" h-70"
+      />
     </div>
   );
 }

@@ -22,6 +22,7 @@ body {
     #2d1a5c 80%,
     #321a66 100%
   );
+  overflow: visible;
 }
 
 @theme inline {
