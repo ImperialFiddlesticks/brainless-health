@@ -23,7 +23,7 @@ export default function ZombieDropZone({ status }: ZombieDropZoneProps) {
       <img
         alt={`${status} Zombie`}
         src={zombieImages[status]}
-        className="h-60"
+        className=" h-70"
       />
     </div>
   );

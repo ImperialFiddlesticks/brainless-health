@@ -35,7 +35,7 @@ export function ZombieProvider({ children }: { children: ReactNode }) {
     food: 0,
     lastFed: new Date().toISOString(),
     status: "Happy",
-    brains: 4,
+    brains: 3,
   };
   const setHealth = (health: number) => {
     setZombie((prev) => ({

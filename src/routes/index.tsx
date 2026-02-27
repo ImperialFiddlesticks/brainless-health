@@ -15,15 +15,14 @@ function RouteComponent() {
     <PhoneFrame>
       <div className="w-full h-full flex justify-center">
         <div className="w-full main-container flex flex-col items-center h-full rounded-3xl overflow-x-visible">
-          <ZombieHeader headline="Brainless Fitness" />
           <img
             alt="brainless fitness logo"
             src="/logo.png"
-            className="w-20 h-20 mt-10"
+            className="h-125 mt-6"
           />
           <Button
             onClick={() => navigate({ to: "/pickYourZombieScreen/" })}
-            className="mt-10"
+            className="mt-10 w-40 h-25 rounded-full text-4xl text-black bg-[linear-gradient(180deg,#FAFBB5,#CFE068,#6F9838,#2F4A17)] border-3 border-black"
           >
             Start
           </Button>
