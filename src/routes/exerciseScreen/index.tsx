@@ -13,7 +13,6 @@ export const Route = createFileRoute("/exerciseScreen/")({
 
 function RouteComponent() {
   const [steps, setSteps] = useState(0);
-
   const [workout, setWorkout] = useState(0);
   const [meditate, setMeditate] = useState(0);
   const [awayscreen, setAwayscreen] = useState(0);
@@ -26,45 +25,46 @@ function RouteComponent() {
   }
 
   return (
-    <div className="w-full flex justify-center">
-      <div className="w-xl main-container bg-[#ffffff] h-screen rounded-3xl">
-        <h2 className="exercise-heading">Registrera träning</h2>
-
-        <NumberInput
-          label="Number of steps this week:"
-          value={steps}
-          onChange={setSteps}
-          className="NumberInput"
-        />
-
-        <NumberInput
-          label="Hours of workout this week:"
-          value={workout}
-          onChange={setWorkout}
-          className="NumberInput"
-        />
-
-        <NumberInput
-          label="Hours of meditation this week:"
-          value={meditate}
-          onChange={setMeditate}
-          className="NumberInput"
-        />
-
-        <NumberInput
-          label="Hours away from brainrot screentime this week:"
-          value={awayscreen}
-          onChange={setAwayscreen}
-          className="NumberInput"
-        />
-
-        <button type="button" onClick={handleSubmit}>
-          Registrera
-        </button>
     <PhoneFrame>
       <div className="w-full h-full flex justify-center">
-        <div className="w-l main-container flex flex-col items-center h-full rounded-3xl overflow-x-visible">
-          Exercise Screen
+        <div className="w-l main-container flex flex-col items-center bg-[#ffffff] h-full rounded-3xl overflow-x-visible p-4">
+          <h2 className="exercise-heading">Register Activities</h2>
+
+          <NumberInput
+            label="Number of steps this week:"
+            value={steps}
+            onChange={setSteps}
+            className="NumberInput"
+          />
+
+          <NumberInput
+            label="Hours of workout this week:"
+            value={workout}
+            onChange={setWorkout}
+            className="NumberInput"
+          />
+
+          <NumberInput
+            label="Hours of meditation this week:"
+            value={meditate}
+            onChange={setMeditate}
+            className="NumberInput"
+          />
+
+          <NumberInput
+            label="Hours away from brainrot screentime this week:"
+            value={awayscreen}
+            onChange={setAwayscreen}
+            className="NumberInput"
+          />
+
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className="mt-4 px-4 py-2 bg-green-500 rounded text-white"
+          >
+            Save
+          </button>
         </div>
       </div>
     </PhoneFrame>
